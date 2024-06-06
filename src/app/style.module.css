@@ -70,10 +70,6 @@
     align-items: center;
 }
 
-.brandLogo {
-    width: 1.5rem;
-}
-
 .menu {
     grid-area: menu;
     display: flex;
@@ -131,10 +127,10 @@
     border: 1px solid #fd8d14 !important;
     transition: background-color .25s ease-in-out;
 }
-
+/* 
 .downloadButton::after {
     content: " Download";
-}
+} */
 
 .downloadButton:hover {
     background-color: transparent;
@@ -153,7 +149,7 @@
     height: 100vh;
     background-color: #fd8d14;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 }
 
@@ -161,9 +157,11 @@
     width: 40%;
     color: #ffffff;
     display: flex;
+    flex-direction: column;
     align-items: center;
     position: relative;
     z-index: 2;
+    text-align: center;
 }
 
 .headerTitle > h1 {
