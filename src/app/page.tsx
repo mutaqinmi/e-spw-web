@@ -33,7 +33,7 @@ function Navbar(prop: any){
                 <Link style={{textDecoration: 'none'}} href={'/login-guru'} className={`${styles.navLink} ${prop.initialIndex == 5 ? styles.active : ''}`}>Guru PKK</Link>
             </div>
             <div className={styles.download}>
-                <Link style={{textDecoration: 'none', display: 'flex', justifyContent: 'center'}} href={'/app/espw-v0.1.0-alpha.apk'} download={'espw-app-v0.1.0-alpha'} className={styles.downloadButton}><DownloadSimple size={22}/> <span>Download</span></Link>
+                <Link style={{textDecoration: 'none', display: 'flex', justifyContent: 'center'}} href={'/app/espw-app-v0.1.3-alpha.apk'} download={'espw-app-v0.1.3-alpha'} className={styles.downloadButton}><DownloadSimple size={22}/> <span>Download</span></Link>
             </div>
         </div>
     </nav>
