@@ -1,53 +1,79 @@
 'use client'
 import './global.css';
-import styles from './style.module.css';
-import Link from 'next/link';
+import Navbar from './../components/navbar';
 import Image from 'next/image';
 import { DownloadSimple } from '@phosphor-icons/react';
 
 export default function Home(){
     return <>
-        {/* <Navbar initialIndex='1'/> */}
-        <Header/>
+        <Navbar initialIndex={0}/>
+        <div style={{
+            width: '100%',
+            height: '100vh',
+            padding: '5rem 2rem 2rem 2rem',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'flex-end',
+        }}>
+            <div style={{
+                width: '100%',
+                height: '100%',
+                backgroundColor: '#fd8d18',
+                borderRadius: '1rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-around',
+            }}>
+                <div style={{
+                    width: '50%',
+                    padding: '2rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                }}>
+                    <h1 style={{
+                        color: '#fff',
+                        fontSize: '4rem',
+                        fontFamily: 'Poppins ExtraBold',
+                    }}>Beli apa aja<br/>bisa dimana aja.</h1>
+                    <span style={{
+                        color: '#fff',
+                        marginBottom: '2rem',
+                    }}>Dapatkan produk yang kamu inginkan dengan kemudahan berbelanja online hanya di E - SPW!</span>
+                    <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '1rem',
+                    }}>
+                        <form action="/app/espw-app-v0.1.3-alpha.apk" method="get">
+                            <button style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                alignSelf: 'flex-start',
+                                gap: '.5rem',
+                                padding: '.5rem 1rem',
+                                backgroundColor: '#fff',
+                                color: '#fd8d18',
+                                border: 'none',
+                                borderRadius: '1rem',
+                                cursor: 'pointer',
+                                fontWeight: 'bold',
+                            }}><DownloadSimple style={{fontWeight: 'bold'}}/>Download</button>
+                        </form>
+                        <span style={{
+                            color: '#fff',
+                            paddingLeft: '1rem',
+                            borderLeft: '2px solid #fff',
+                        }}>eSPW v0.1.3-alpha</span>
+                    </div>
+                </div>
+                <div style={{
+                    width: '30%',
+                    display: 'flex',
+                    justifyContent: 'center',
+                }}>
+                    <Image src={'/images/espw-app.png'} alt='eSPW App' height={450} width={215}></Image>
+                </div>
+            </div>
+        </div>
     </>
-}
-
-function Navbar(prop: any){
-    return <nav className={styles.navbar}>
-        <div className={styles.brand}>
-            <Link style={{textDecoration: 'none'}} href={'/'}>
-                <Image src={'/icons/espw-white.png'} width={24} height={24} alt='eSPW' className={styles.brandLogo}></Image>
-            </Link>
-        </div>
-        <div className={styles.menu}>
-            <div className={styles.menuButton}>
-                <div className={styles.garis1}></div>
-                <div className={styles.garis2}></div>
-                <div className={styles.garis3}></div>
-            </div>
-            <div className={`${styles.menuLink}`}>
-                <Link style={{textDecoration: 'none'}} href={'/'} className={`${styles.navLink} ${prop.initialIndex == 1 ? styles.active : ''}`}>Beranda</Link>
-                <Link style={{textDecoration: 'none'}} href={'/'} className={`${styles.navLink} ${prop.initialIndex == 2 ? styles.active : ''}`}>Tentang</Link>
-                <Link style={{textDecoration: 'none'}} href={'/'} className={`${styles.navLink} ${prop.initialIndex == 3 ? styles.active : ''}`}>Fitur</Link>
-                <Link style={{textDecoration: 'none'}} href={'/'} className={`${styles.navLink} ${prop.initialIndex == 4 ? styles.active : ''}`}>FAQ</Link>
-                <Link style={{textDecoration: 'none'}} href={'/login-guru'} className={`${styles.navLink} ${prop.initialIndex == 5 ? styles.active : ''}`}>Guru PKK</Link>
-            </div>
-            <div className={styles.download}>
-                <Link style={{textDecoration: 'none', display: 'flex', justifyContent: 'center'}} href={'/app/espw-app-v0.1.3-alpha.apk'} download={'espw-app-v0.1.3-alpha'} className={styles.downloadButton}><DownloadSimple size={22}/> <span>Download</span></Link>
-            </div>
-        </div>
-    </nav>
-}
-
-function Header(){
-    return <div className={styles.header}>
-        <div className={styles.headerTitle}>
-            <Image src={'/icons/espw-white.png'} width={40} height={40} alt='eSPW' style={{marginBottom: '2rem'}}></Image>
-            <h1>Beli apa aja<br/>bisa dimana aja</h1>
-            <p>Dapatkan produk yang kamu inginkan dengan kemudahan berbelanja online hanya di eSPW!</p>
-            <div className={styles.download}>
-                <Link style={{textDecoration: 'none', marginTop: '3rem', display: 'flex', justifyContent: 'center', alignItems: 'center'}} href={'/app/espw-app-v0.1.3-alpha.apk'} download={'espw-app-v0.1.3-alpha'} className={`${styles.downloadButton} ${styles.downloadHeaderButton}`}><DownloadSimple size={22} style={{marginRight: '.5rem'}}/>Download</Link>
-            </div>
-        </div>
-    </div>
 }

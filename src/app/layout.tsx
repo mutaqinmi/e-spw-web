@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'eSPW',
+  title: 'eSPW | Beli apa aja, bisa dimana aja!',
   description: 'Beli apa aja, bisa dimana aja!',
 }
 
