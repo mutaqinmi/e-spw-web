@@ -46,7 +46,7 @@ function Header(){
             <h1>Beli apa aja<br/>bisa dimana aja</h1>
             <p>Dapatkan produk yang kamu inginkan dengan kemudahan berbelanja online hanya di eSPW!</p>
             <div className={styles.download}>
-                <Link style={{textDecoration: 'none', marginTop: '3rem', display: 'flex', justifyContent: 'center', alignItems: 'center'}} href={'/app/espw-v0.1.0-alpha.apk'} download={'espw-app-v0.1.0-alpha'} className={`${styles.downloadButton} ${styles.downloadHeaderButton}`}><DownloadSimple size={22} style={{marginRight: '.5rem'}}/>Download</Link>
+                <Link style={{textDecoration: 'none', marginTop: '3rem', display: 'flex', justifyContent: 'center', alignItems: 'center'}} href={'/app/espw-app-v0.1.3-alpha.apk'} download={'espw-app-v0.1.3-alpha'} className={`${styles.downloadButton} ${styles.downloadHeaderButton}`}><DownloadSimple size={22} style={{marginRight: '.5rem'}}/>Download</Link>
             </div>
         </div>
     </div>
