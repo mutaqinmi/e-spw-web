@@ -1,6 +1,6 @@
 'use client'
 import './global.css';
-import Navbar from './../components/navbar';
+import Navbar from '@/components/navbar';
 import Image from 'next/image';
 import { CaretRight, DownloadSimple, NotePencil, Question, Star, Storefront } from '@phosphor-icons/react';
 
@@ -38,7 +38,7 @@ export default function Home(){
                     <span style={{
                         color: '#fff',
                         marginBottom: '2rem',
-                    }}>Dapatkan produk yang kamu inginkan dengan kemudahan berbelanja online hanya di E - SPW!</span>
+                    }}>Dapatkan produk yang kamu inginkan dengan kemudahan berbelanja online hanya di eSPW!</span>
                     <div style={{
                         display: 'flex',
                         alignItems: 'center',
@@ -221,7 +221,7 @@ export default function Home(){
                 alignItems: 'center',
                 gap: '2rem',
             }}>
-                <FAQ faq='apa itu eSPW?'/>
+                <FAQ faq='Apa itu eSPW?'/>
                 <FAQ faq='Jangkauan eSPW sampai mana?'/>
                 <FAQ faq='Bagaimana prosedur menjadi pengguna eSPW?'/>
                 <FAQ faq='Bagaimana cara pembayaran di eSPW?'/>
@@ -231,7 +231,7 @@ export default function Home(){
     </>
 }
 
-function FAQ(props: any){
+function FAQ(props: {faq: string}){
     return <div style={{
         width: '80%',
         display: 'flex',
@@ -249,6 +249,6 @@ function FAQ(props: any){
             <Question weight='fill' color='#fd8d18'/>
             <span style={{fontWeight: 'bold'}}>{props.faq}</span>
         </div>
-        <CaretRight color='#fd8d18'/>
+        <CaretRight color='#fd8d18' weight='bold'/>
     </div>
 }

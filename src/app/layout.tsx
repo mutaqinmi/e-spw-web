@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'eSPW | Beli apa aja, bisa dimana aja!',
-  description: 'Beli apa aja, bisa dimana aja!',
+  description: 'Dapatkan produk yang kamu inginkan dengan kemudahan berbelanja online hanya di eSPW!',
 }
 
 export default function RootLayout({

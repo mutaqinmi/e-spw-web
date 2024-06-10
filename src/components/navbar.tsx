@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { DownloadSimple } from '@phosphor-icons/react';
 
-export default function Navbar(props: any){
+export default function Navbar(props: {initialIndex: number}){
     return <nav style={{
         width: '100%',
         height: '4rem',
@@ -13,6 +13,7 @@ export default function Navbar(props: any){
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#fff',
+        zIndex: 999
     }}>
         <div style={{
             width: '100%',
@@ -91,7 +92,7 @@ export default function Navbar(props: any){
                 alignItems: 'center',
                 gap: '1rem',
             }}>
-                <Link href={'/guru-pkk'} style={{
+                <Link href={'/login'} style={{
                     textDecoration: 'none',
                     cursor: 'pointer',
                     padding: '.5rem 1rem',
