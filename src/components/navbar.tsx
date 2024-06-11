@@ -101,7 +101,7 @@ export default function Navbar(props: {initialIndex: number}){
                     borderRadius: '1rem',
                     fontSize: '14px',
                 }}>Guru PKK</Link>
-                <form action="/app/espw-app-v1.1.2-beta.apk" method="get">
+                <form action="/app/espw-app-v1.2.2-beta.apk" method="get">
                     <button style={{
                         display: 'flex',
                         alignItems: 'center',
