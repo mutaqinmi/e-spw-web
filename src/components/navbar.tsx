@@ -92,7 +92,7 @@ export default function Navbar(props: {initialIndex: number}){
                 alignItems: 'center',
                 gap: '1rem',
             }}>
-                <Link href={'/login'} style={{
+                <Link href={'/guru-pkk'} style={{
                     textDecoration: 'none',
                     cursor: 'pointer',
                     padding: '.5rem 1rem',

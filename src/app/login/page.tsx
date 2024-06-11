@@ -3,9 +3,37 @@ import { Eye, EyeSlash } from '@phosphor-icons/react';
 import './../global.css';
 import Image from 'next/image';
 import { useState } from 'react';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
 export default function Login(){
+    const router = useRouter();
     const [type, setType] = useState('password');
+    const submit = (e: any) => {
+        e.preventDefault();
+        axios.post('https://api.espw.my.id/api/v2/guru/auth/login', {
+            nip: e.target.nip.value,
+            password: e.target.password.value
+        }, {
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }).then(res => {
+            console.log(res);
+            if(res.status === 200){
+                localStorage.setItem('token', res.data.token);
+                router.push('/guru-pkk')
+            }
+        }).catch(err => {
+            console.log(err);
+            alert('Login gagal, silahkan coba lagi.')
+        })
+    }
+
+    if(localStorage.getItem('token')){
+        return router.push('/guru-pkk')
+    }
+
     return <div style={{
         width: '100%',
         height: '100vh',
@@ -47,7 +75,7 @@ export default function Login(){
                 <p style={{
                     fontSize: '12px'
                 }}>Masuk ke akun anda.</p>
-                <form method='post' style={{
+                <form method='post' onSubmit={submit} style={{
                     width: '100%',
                     marginTop: '2rem',
                     display: 'flex',

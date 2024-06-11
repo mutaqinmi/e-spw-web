@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.5",
+    "@types/jsonwebtoken": "^9.0.6",
     "axios": "^1.7.2",
+    "jsonwebtoken": "8.5.1",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18"

@@ -3,8 +3,19 @@ import '@/app/global.css';
 import Image from 'next/image';
 import { MagnifyingGlass, SignOut } from '@phosphor-icons/react';
 import Profile from './profile';
+import { useRouter } from 'next/navigation';
+import { JwtPayload, Secret, verify } from 'jsonwebtoken';
 
 export default function NavbarGuru(){
+    const router = useRouter();
+    const logout = () => {
+        const confirmDialog: boolean = confirm('Apakah Anda yakin ingin keluar?');
+        if(confirmDialog){
+            localStorage.removeItem('token');
+            router.push('/login')
+        }
+    }
+
     return <nav style={{
         width: '100%',
         height: '7rem',
@@ -63,7 +74,7 @@ export default function NavbarGuru(){
                         }}/>
                 </div>
             </div>
-            <button style={{
+            <button onClick={logout} style={{
                 display: 'flex',
                 alignItems: 'center',
                 gap: '.5rem',
@@ -78,6 +89,11 @@ export default function NavbarGuru(){
                 <SignOut size={24}/>
             </button>
         </div>
-        <Profile nama='Muhammad Ilham Mutaqin'/>
+        {(() => {
+            const token: string = localStorage.getItem('token')!;
+            const data: string | JwtPayload = verify(token, 'espwapp' as Secret);
+            const nama = data as {nama: string};
+            return <Profile nama={nama.nama}/>
+        })()}
     </nav>
 }
