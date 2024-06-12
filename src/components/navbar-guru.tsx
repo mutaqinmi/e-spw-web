@@ -12,7 +12,7 @@ export default function NavbarGuru(){
         const confirmDialog: boolean = confirm('Apakah Anda yakin ingin keluar?');
         if(confirmDialog){
             localStorage.removeItem('token');
-            router.push('/')
+            window.location.reload();
         }
     }
 
