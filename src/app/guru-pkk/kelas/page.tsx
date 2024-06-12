@@ -10,6 +10,9 @@ export default function Kelas(){
     const router = useRouter();
     const [data, setData] = useState([]);
     const searchParams = useSearchParams();
+    if(localStorage.getItem('token') === null || localStorage.getItem('token') === undefined || localStorage.getItem('token') === ''){
+        return router.push('/login')
+    }
 
     useEffect(() => {
         axios.get(`https://api.espw.my.id/api/v2/guru/kelas/${searchParams.get('id_kelas')}`, {
@@ -22,10 +25,6 @@ export default function Kelas(){
             console.log(err)
         ])
     })
-
-    if(localStorage.getItem('token') === null || localStorage.getItem('token') === undefined || localStorage.getItem('token') === ''){
-        return router.push('/login')
-    }
 
     return <>
         <NavbarGuru/>

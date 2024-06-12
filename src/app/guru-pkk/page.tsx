@@ -12,6 +12,9 @@ export default function GuruPKK(){
     const [jumlahSiswa, setJumlahSiswa] = useState(0);
     const [kelas, setKelas] = useState([]);
     const router = useRouter();
+    if(localStorage.getItem('token') === null || localStorage.getItem('token') === undefined || localStorage.getItem('token') === ''){
+        return router.push('/login')
+    }
     
     const color = (jurusan: string) => {
         switch(jurusan){
@@ -59,9 +62,6 @@ export default function GuruPKK(){
         })
     })
 
-    if(localStorage.getItem('token') === null || localStorage.getItem('token') === undefined || localStorage.getItem('token') === ''){
-        return router.push('/login')
-    }
 
     return <>
         <NavbarGuru/>

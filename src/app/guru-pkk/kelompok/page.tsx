@@ -2,7 +2,6 @@
 import '@/app/global.css';
 import NavbarGuru from '@/components/navbar-guru';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { CaretCircleLeft } from '@phosphor-icons/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import axios from 'axios';
 
@@ -13,6 +12,9 @@ export default function Kelompok(){
     const [dataKelompok, setDataKelompok] = useState([]);
     const [dataTransaksi, setDataTransaksi] = useState([]);
     const searchParams = useSearchParams();
+    if(localStorage.getItem('token') === null || localStorage.getItem('token') === undefined || localStorage.getItem('token') === ''){
+        return router.push('/login')
+    }
 
     useEffect(() => {
         axios.get(`https://api.espw.my.id/api/v2/toko/${searchParams.get('id_kelompok')}`, {
@@ -49,9 +51,6 @@ export default function Kelompok(){
         ])
     })
 
-    if(localStorage.getItem('token') === null || localStorage.getItem('token') === undefined || localStorage.getItem('token') === ''){
-        return router.push('/login')
-    }
 
     return <>
         <NavbarGuru/>
@@ -81,9 +80,7 @@ export default function Kelompok(){
 function Header(props: {namaToko: string; kelas: string}){
     return <div style={{
         width: '100%',
-        // borderRadius: '1rem',
-        borderTopLeftRadius: '1rem',
-        borderTopRightRadius: '1rem',
+        borderRadius: '1rem',
         lineHeight: '1.2',
         display: 'flex',
         flexDirection: 'column',
@@ -100,8 +97,9 @@ function Header(props: {namaToko: string; kelas: string}){
 
 function Tab(props: {initialIndex: number; setIndex: Dispatch<SetStateAction<number>>}){
     return <div style={{
-        marginTop: '0rem',
+        marginTop: '1rem',
         display: 'grid',
+        borderBottom: '2px solid #fd8d18',
         gridTemplateColumns: 'repeat(3, 1fr)',
         justifyItems: 'stretch',
         textAlign: 'center',
@@ -109,22 +107,22 @@ function Tab(props: {initialIndex: number; setIndex: Dispatch<SetStateAction<num
     }}>
         <span onClick={() => props.setIndex(0)} style={{
             padding: '.5rem',
-            borderBottomLeftRadius: '1rem',
-            borderBottomRightRadius: '1rem',
+            borderTopLeftRadius: '1rem',
+            borderTopRightRadius: '1rem',
             color: `${props.initialIndex === 0 ? '#fff' : 'grey'}`,
             backgroundColor: `${props.initialIndex === 0 ? '#fd8d18' : '#fff'}`,
         }}>Tentang</span>
         <span onClick={() => props.setIndex(1)} style={{
             padding: '.5rem',
-            borderBottomLeftRadius: '1rem',
-            borderBottomRightRadius: '1rem',
+            borderTopLeftRadius: '1rem',
+            borderTopRightRadius: '1rem',
             color: `${props.initialIndex === 1 ? '#fff' : 'grey'}`,
             backgroundColor: `${props.initialIndex === 1 ? '#fd8d18' : '#fff'}`,
         }}>Produk</span>
         <span onClick={() => props.setIndex(2)} style={{
             padding: '.5rem',
-            borderBottomLeftRadius: '1rem',
-            borderBottomRightRadius: '1rem',
+            borderTopLeftRadius: '1rem',
+            borderTopRightRadius: '1rem',
             color: `${props.initialIndex === 2 ? '#fff' : 'grey'}`,
             backgroundColor: `${props.initialIndex === 2 ? '#fd8d18' : '#fff'}`,
         }}>Detail Penjualan</span>
@@ -134,7 +132,7 @@ function Tab(props: {initialIndex: number; setIndex: Dispatch<SetStateAction<num
 function Tentang(props: { data: any }){
     return <div style={{
         width: '100%',
-        marginTop: '2rem',
+        marginTop: '1rem',
     }}>
         <h2>Daftar Anggota</h2>
         <table style={{
@@ -181,7 +179,7 @@ function Tentang(props: { data: any }){
 function Produk(props: { data: any }){
     return <div style={{
         width: '100%',
-        marginTop: '2rem',
+        marginTop: '1rem',
     }}>
         <table style={{
             width: '100%',
@@ -246,7 +244,7 @@ function Produk(props: { data: any }){
 function Transaksi(props: { data: any }){
     return <div style={{
         width: '100%',
-        marginTop: '2rem',
+        marginTop: '1rem',
     }}>
         <table style={{
             width: '100%',

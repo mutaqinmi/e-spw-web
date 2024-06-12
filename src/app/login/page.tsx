@@ -9,6 +9,10 @@ import { useRouter } from 'next/navigation';
 export default function Login(){
     const router = useRouter();
     const [type, setType] = useState('password');
+    if(localStorage.getItem('token')){
+        return router.push('/guru-pkk')
+    }
+
     const submit = (e: any) => {
         e.preventDefault();
         axios.post('https://api.espw.my.id/api/v2/guru/auth/login', {
@@ -28,10 +32,6 @@ export default function Login(){
             console.log(err);
             alert('Login gagal, silahkan coba lagi.')
         })
-    }
-
-    if(localStorage.getItem('token')){
-        return router.push('/guru-pkk')
     }
 
     return <div style={{
