@@ -44,7 +44,7 @@ export default function Home(){
                         alignItems: 'center',
                         gap: '1rem',
                     }}>
-                        <form action="/app/espw-app-v1.2.2-beta.apk" method="get">
+                        <form action="/app/espw-app-v2.0.1-beta.apk" method="get">
                             <button style={{
                                 display: 'flex',
                                 alignItems: 'center',
@@ -63,7 +63,7 @@ export default function Home(){
                             color: '#fff',
                             paddingLeft: '1rem',
                             borderLeft: '2px solid #fff',
-                        }}>eSPW v1.2.2-beta</span>
+                        }}>eSPW v2.0.1-beta</span>
                     </div>
                 </div>
                 <div style={{
